@@ -22,6 +22,13 @@ export class AppComponent {
       'gender':new FormControl(),
       'hobbies':new FormArray([])
     });
+    // FormGroup Has Two Obsevables We Can subscribe to 1. valueChanges 2. statusChanges 
+    this.signupForm.valueChanges.subscribe((value)=>{
+        console.log(value);
+    })
+    this.signupForm.statusChanges.subscribe((status)=>{
+         console.log(status);
+     })
   }
   onSubmit(){
     console.log(this.signupForm);
@@ -47,7 +54,7 @@ export class AppComponent {
             resolve({'emailIsForbidden':true});
           }
           else{
-            reject(null);
+            resolve(null);
           }
         })
       }
