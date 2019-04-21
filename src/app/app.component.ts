@@ -29,6 +29,21 @@ export class AppComponent {
     this.signupForm.statusChanges.subscribe((status)=>{
          console.log(status);
      })
+     // Setting The Default Value On The Form
+     this.signupForm.setValue({
+      'userData':{
+        'username':'Vinay Pathak',
+        'email':'me.vinaypathak@gmail.com'
+      },
+      'hobbies':[],
+      'gender':'mail'
+    })
+    // Updating Only Part Of The Form
+    this.signupForm.patchValue({
+       'userData':{
+         'username': 'Vinay'
+       }
+    })
   }
   onSubmit(){
     console.log(this.signupForm);
